@@ -13,11 +13,15 @@ class Logger extends AbstractLogger
 
     private $handler;
     private $dateTime;
+    private $level;
+    private $message;
+    private $context;
 
     function __construct(AbstractHandler $handler, ?DateTimeInterface $dateTime = NULL) 
     {
         $this->handler = $handler;
         $this->dateTime = $dateTime;
+
     }
 
     /**
@@ -29,9 +33,12 @@ class Logger extends AbstractLogger
      */
     public function log($level, string|\Stringable $message, array $context = []): void
     {
-        $level = strtoupper($level);
-        if(!defined(LogLevel::class.'::'.$level)) throw new InvalidArgumentException("The log level \"{$level}\" does not exist.", 1);
-        $this->handler->handler(strtoupper($level), $this->handler->interpolate($message, $context), $context, $this->getDate());
+        $this->level = strtoupper($level);
+        if(!defined(LogLevel::class.'::'.$this->level)) throw new InvalidArgumentException("The log level \"{$this->level}\" does not exist.", 1);
+
+        $this->message = $message;
+        $this->context = $context;
+        $this->handler->handler($this->level, $this->handler->interpolate($this->message, $this->context), $this->context, $this->getDate());
     }
 
     /**
