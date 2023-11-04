@@ -6,11 +6,11 @@ use PHPFuse\Query\DB;
 
 class DBHandler extends AbstractHandler
 {
-    const TABLE = "logger";
+    public const TABLE = "logger";
 
     private $args;
 
-    function __construct(array $args = array()) 
+    public function __construct(array $args = array())
     {
         $this->args = $args;
     }
@@ -22,7 +22,7 @@ class DBHandler extends AbstractHandler
      * @param  string $date
      * @return void
      */
-    function handler(string $level, string $message, array $context, string $date): void 
+    public function handler(string $level, string $message, array $context, string $date): void
     {
         $set = array_merge([
             "level" => $level,
@@ -37,7 +37,8 @@ class DBHandler extends AbstractHandler
     }
 
 
-    function create() {
+    public function create()
+    {
 
         $mig = new \PHPFuse\Query\Create(static::TABLE, \PHPFuse\Query\Connect::prefix());
         $mig->auto();
@@ -77,7 +78,4 @@ class DBHandler extends AbstractHandler
 
         $mig->execute();
     }
-
-   
-
 }

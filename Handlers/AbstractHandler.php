@@ -11,7 +11,6 @@ namespace PHPFuse\Log\Handlers;
  */
 abstract class AbstractHandler
 {
-
     abstract protected function handler(string $level, string $message, array $context, string $date): void;
 
     /**
@@ -20,17 +19,16 @@ abstract class AbstractHandler
      * @param  array  $context
      * @return string
      */
-    function interpolate(string $message, array $context = array()): string
+    public function interpolate(string $message, array $context = array()): string
     {
         $replace = array();
         foreach ($context as $key => $val) {
-            if(is_array($val)) {
+            if (is_array($val)) {
                 $replace['{' . $key . '}'] = json_encode($val);
-            } else if((!is_object($val) || method_exists($val, '__toString'))) {
+            } elseif ((!is_object($val) || method_exists($val, '__toString'))) {
                 $replace['{' . $key . '}'] = $val;
             }
         }
         return strtr($message, $replace);
     }
-
 }
