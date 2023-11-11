@@ -2,6 +2,8 @@
 
 namespace PHPFuse\Log\Handlers;
 
+use PHPFuse\Log\Interfaces\HandlerInterface;
+
 /**
  * This is a simple Logger implementation that other Loggers can inherit from.
  *
@@ -9,10 +11,8 @@ namespace PHPFuse\Log\Handlers;
  * reduce boilerplate code that a simple Logger that does the same thing with
  * messages regardless of the error level has to implement.
  */
-abstract class AbstractHandler
+abstract class AbstractHandler implements HandlerInterface
 {
-    abstract protected function handler(string $level, string $message, array $context, string $date): void;
-
     /**
      * Interpolates context values into the message placeholders.
      * @param  string $message

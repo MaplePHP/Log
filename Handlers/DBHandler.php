@@ -44,7 +44,7 @@ class DBHandler extends AbstractHandler
         $mig->auto();
 
         // Add/alter columns
-        $result = $mig->column("id", [
+        $mig->column("id", [
             "type" => "int",
             "length" => 11,
             "attr" => "unsigned",
