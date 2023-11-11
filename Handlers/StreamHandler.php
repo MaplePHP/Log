@@ -20,7 +20,7 @@ class StreamHandler extends AbstractHandler
     public function __construct(string $file, ?int $size = null, ?int $count = null)
     {
         $this->file = basename($file);
-        $this->dir = dirname($file)."/";
+        $this->dir = dirname($file) . "/";
         $this->size = !is_null($size) ? ($size * 1024) : $size;
         $this->count = $count;
     }
@@ -52,7 +52,7 @@ class StreamHandler extends AbstractHandler
             if (!is_writable($this->dir)) {
                 throw new \Exception("The directory \"{$this->dir}\" is not writable!", 1);
             }
-            $this->stream = new Stream($this->dir.$this->file, "a");
+            $this->stream = new Stream($this->dir . $this->file, "a");
         }
         return $this->stream;
     }
@@ -64,12 +64,12 @@ class StreamHandler extends AbstractHandler
     protected function rotate(): void
     {
         if (!is_null($this->size)) {
-            $file = $this->dir.$this->file;
+            $file = $this->dir . $this->file;
             $filename = $this->fileInfo("filename");
             $extension = $this->fileInfo("extension");
 
             if (is_file($file) && (filesize($file) > $this->size)) {
-                $files = glob($this->dir."{$filename}*[0-9].{$extension}");
+                $files = glob($this->dir . "{$filename}*[0-9].{$extension}");
                 $count = count($files);
                 sort($files);
 
@@ -79,7 +79,7 @@ class StreamHandler extends AbstractHandler
                     }
                 }
                 $date = time();
-                rename($file, $this->dir.$filename."-{$date}.{$extension}");
+                rename($file, $this->dir . $filename . "-{$date}.{$extension}");
             }
         }
     }

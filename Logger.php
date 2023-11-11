@@ -6,6 +6,7 @@ use PHPFuse\Log\Handlers\AbstractHandler;
 use PHPFuse\Log\InvalidArgumentException;
 use PHPFuse\Log\AbstractLogger;
 use PHPFuse\Log\LogLevel;
+use DateTimeInterface;
 
 class Logger extends AbstractLogger
 {
@@ -33,7 +34,7 @@ class Logger extends AbstractLogger
     public function log($level, string|\Stringable $message, array $context = []): void
     {
         $this->level = strtoupper($level);
-        if (!defined(LogLevel::class.'::'.$this->level)) {
+        if (!defined(LogLevel::class . '::' . $this->level)) {
             throw new InvalidArgumentException("The log level \"{$this->level}\" does not exist.", 1);
         }
 
