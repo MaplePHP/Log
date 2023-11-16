@@ -15,7 +15,7 @@ class Logger extends AbstractLogger
     private $handler;
     private $dateTime;
     private $level;
-    private $message;
+    private $message = "";
     private $context;
 
     public function __construct(AbstractHandler $handler, ?DateTimeInterface $dateTime = null)
@@ -26,12 +26,12 @@ class Logger extends AbstractLogger
 
     /**
      * Log Value
-     * @param  string $level
+     * @param  mixed $level
      * @param  string|\Stringable $message
      * @param  array $context
      * @return void
      */
-    public function log($level, string|\Stringable $message, array $context = []): void
+    public function log(mixed $level, string|\Stringable $message, array $context = []): void
     {
         $this->level = strtoupper($level);
         if (!defined(LogLevel::class . '::' . $this->level)) {
@@ -42,7 +42,7 @@ class Logger extends AbstractLogger
         $this->context = $context;
         $this->handler->handler(
             $this->level,
-            $this->handler->interpolate($this->message, $this->context),
+            $this->handler->interpolate((string)$this->message, $this->context),
             $this->context,
             $this->getDate()
         );

@@ -121,5 +121,5 @@ interface LoggerInterface
      *
      * @throws \Psr\Log\InvalidArgumentException
      */
-    public function log($level, string|\Stringable $message, array $context = []): void;
+    public function log(mixed $level, string|\Stringable $message, array $context = []): void;
 }

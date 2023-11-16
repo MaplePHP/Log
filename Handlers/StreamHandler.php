@@ -86,8 +86,8 @@ class StreamHandler extends AbstractHandler
 
     /**
      * Get file information
-     * @param  string $key [description]
-     * @return [type]      [description]
+     * @param  string $key
+     * @return string|null
      */
     private function fileInfo(string $key): ?string
     {
