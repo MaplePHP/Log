@@ -1,8 +1,8 @@
 <?php
 
-namespace PHPFuse\Log;
+namespace MaplePHP\Log;
 
-use PHPFuse\Log\AbstractLogger;
+use MaplePHP\Log\AbstractLogger;
 
 /**
  * This Logger can be used to avoid conditional log calls.

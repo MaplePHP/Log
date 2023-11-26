@@ -1,6 +1,6 @@
 <?php
 
-namespace PHPFuse\Log\Interfaces;
+namespace MaplePHP\Log\Interfaces;
 
 interface HandlerInterface
 {

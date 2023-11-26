@@ -1,6 +1,6 @@
 <?php
 
-namespace PHPFuse\Log;
+namespace MaplePHP\Log;
 
 /**
  * Describes log levels.

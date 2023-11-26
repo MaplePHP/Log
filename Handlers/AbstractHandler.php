@@ -1,8 +1,8 @@
 <?php
 
-namespace PHPFuse\Log\Handlers;
+namespace MaplePHP\Log\Handlers;
 
-use PHPFuse\Log\Interfaces\HandlerInterface;
+use MaplePHP\Log\Interfaces\HandlerInterface;
 
 /**
  * This is a simple Logger implementation that other Loggers can inherit from.

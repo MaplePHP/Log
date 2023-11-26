@@ -1,8 +1,8 @@
 <?php
 
-namespace PHPFuse\Log;
+namespace MaplePHP\Log;
 
-use PHPFuse\Log\Interfaces\LoggerInterface;
+use MaplePHP\Log\Interfaces\LoggerInterface;
 
 /**
  * Basic Implementation of LoggerAwareInterface.

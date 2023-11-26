@@ -1,9 +1,9 @@
 <?php
 
-namespace PHPFuse\Log\Handlers;
+namespace MaplePHP\Log\Handlers;
 
-use PHPFuse\Http\Interfaces\StreamInterface;
-use PHPFuse\Http\Stream;
+use MaplePHP\Http\Interfaces\StreamInterface;
+use MaplePHP\Http\Stream;
 
 class StreamHandler extends AbstractHandler
 {

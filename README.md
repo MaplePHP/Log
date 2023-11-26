@@ -1,4 +1,4 @@
-# PHPFuse - PSR 3 - Logger
+# MaplePHP - PSR 3 - Logger
 
 ### Stream/file handler
 

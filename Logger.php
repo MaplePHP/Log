@@ -1,11 +1,11 @@
 <?php
 
-namespace PHPFuse\Log;
+namespace MaplePHP\Log;
 
-use PHPFuse\Log\Handlers\AbstractHandler;
-use PHPFuse\Log\InvalidArgumentException;
-use PHPFuse\Log\AbstractLogger;
-use PHPFuse\Log\LogLevel;
+use MaplePHP\Log\Handlers\AbstractHandler;
+use MaplePHP\Log\InvalidArgumentException;
+use MaplePHP\Log\AbstractLogger;
+use MaplePHP\Log\LogLevel;
 use DateTimeInterface;
 
 class Logger extends AbstractLogger

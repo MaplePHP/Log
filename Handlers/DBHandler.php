@@ -1,8 +1,8 @@
 <?php
 
-namespace PHPFuse\Log\Handlers;
+namespace MaplePHP\Log\Handlers;
 
-use PHPFuse\Query\DB;
+use MaplePHP\Query\DB;
 
 class DBHandler extends AbstractHandler
 {
@@ -40,7 +40,7 @@ class DBHandler extends AbstractHandler
     public function create()
     {
 
-        $mig = new \PHPFuse\Query\Create(static::TABLE, \PHPFuse\Query\Connect::prefix());
+        $mig = new \MaplePHP\Query\Create(static::TABLE, \MaplePHP\Query\Connect::prefix());
         $mig->auto();
 
         // Add/alter columns
