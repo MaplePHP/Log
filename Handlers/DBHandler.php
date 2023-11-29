@@ -40,9 +40,9 @@ class DBHandler extends AbstractHandler
 
     /**
      * Execute method bellow once an it will automatically create your table!
-     * @return void
+     * @return mixed
      */
-    public function create(): void
+    public function create(): mixed
     {
 
         $mig = new Create(static::TABLE, Connect::prefix());
@@ -81,6 +81,6 @@ class DBHandler extends AbstractHandler
             "index" => "index"
         ]);
 
-        $mig->execute();
+        return $mig->execute();
     }
 }
