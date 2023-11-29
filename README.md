@@ -1,6 +1,21 @@
 
+
 # MaplePHP - PSR-3 Logger
 PHP PSR-3 Logger library – your reliable companion for efficient logging in PHP applications. This library adheres to the PSR-3 standard, providing a seamless and standardized approach to logging messages across different components of your application.
+
+
+## Log-levels
+
+1. **emergency:** System is unusable
+2. **alert:** Action must be taken immediately
+3. **critical:** Critical conditions
+4. **error:** Runtime errors that do not require immediate action but usually logged and monitored.
+5. **warning:** Exceptional occurrences that are not errors.
+6. **notice:** Normal but significant events.
+7. **info:** Interesting events (User logs in, SQL logs.)
+8. **debug:** Detailed debug information.
+9. **log:** Logs with an arbitrary level.
+
 
 ## Stream/file handler
 
@@ -32,14 +47,16 @@ use MaplePHP\Log\Handlers\DBHandler;
 [MaplePHP Query](https://github.com/MaplePHP/Query)
 
 #### 2. Create database table
-Execute bellow once to create the database table.
+Execute bellow once to create the database table. Then **remove** the script again!
 ```php
 $dbHandler = new DBHandler();
 $error = $dbHandler->create();
 if (count($error) > 0) {
-	echo "<pre>";
-	print_r($error);
-	echo "</pre>";
+    echo "<pre>";
+    print_r($error);
+    echo "</pre>";
+} else {
+    echo "<p>The Logger database table has been installed!</p>";
 }
 ```
 #### 3. Write to database log
