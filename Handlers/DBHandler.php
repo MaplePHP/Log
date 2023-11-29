@@ -2,7 +2,9 @@
 
 namespace MaplePHP\Log\Handlers;
 
+use MaplePHP\Query\Connect;
 use MaplePHP\Query\DB;
+use MaplePHP\Query\Create;
 
 class DBHandler extends AbstractHandler
 {
@@ -36,11 +38,14 @@ class DBHandler extends AbstractHandler
         $insert->execute();
     }
 
-
-    public function create()
+    /**
+     * Execute method bellow once an it will automatically create your table!
+     * @return void
+     */
+    public function create(): void
     {
 
-        $mig = new \MaplePHP\Query\Create(static::TABLE, \MaplePHP\Query\Connect::prefix());
+        $mig = new Create(static::TABLE, Connect::prefix());
         $mig->auto();
 
         // Add/alter columns

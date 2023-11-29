@@ -1,4 +1,5 @@
-# MaplePHP - PSR 3 - Logger
+# MaplePHP - PSR-3 Logger
+PHP PSR-3 Logger library – your reliable companion for efficient logging in PHP applications. This library adheres to the PSR-3 standard, providing a seamless and standardized approach to logging messages across different components of your application.
 
 ### Stream/file handler
 
