@@ -2,9 +2,6 @@
 
 namespace MaplePHP\Log\Handlers;
 
-use MaplePHP\Http\Interfaces\StreamInterface;
-use MaplePHP\Http\Stream;
-
 class ErrorLogHandler extends AbstractHandler
 {
     public function __construct(?string $file = null)
@@ -16,15 +13,17 @@ class ErrorLogHandler extends AbstractHandler
     }
 
     /**
-     * Apache/server error log handler
+     * Take over the servers error log handler
      * @param  string $level
      * @param  string $message
-     * @param  string $date
+     * @param  array  $context
+     * @param  string $date (Only a placeholder right now, date is handled automatically by error_log)
      * @return void
      */
     public function handler(string $level, string $message, array $context, string $date): void
     {
-        $message = sprintf($message, json_encode($context));
-        error_log("[{$level}] {$message}");
+        $encode = json_encode($context);
+        $message = sprintf($message, $encode);
+        error_log("[{$level}] {$message} {$encode}");
     }
 }

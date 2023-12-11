@@ -29,16 +29,17 @@ class StreamHandler extends AbstractHandler
      * Stream handler
      * @param  string $level
      * @param  string $message
+     * @param  array  $context
      * @param  string $date
      * @return void
      */
     public function handler(string $level, string $message, array $context, string $date): void
     {
-        $message = sprintf($message, json_encode($context));
-
+        $encode = json_encode($context);
+        $message = sprintf($message, $encode);
         $this->rotate();
         $this->stream()->seek(0);
-        $this->stream()->write("{$date} [{$level}] {$message}");
+        $this->stream()->write("[{$date}] [{$level}] {$message} {$encode}");
         $this->stream()->write("\n");
     }
 

@@ -48,6 +48,21 @@ class Logger extends AbstractLogger
         );
     }
 
+    public function getLevel(): mixed
+    {
+        return $this->level;
+    }
+
+    public function getMessage(): string
+    {
+        return (string)$this->message;
+    }
+
+    public function getContext(): array
+    {
+        return $this->context;
+    }
+
     /**
      * Get formated date
      * @return string
