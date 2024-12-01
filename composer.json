@@ -1,5 +1,6 @@
 {
     "name": "maplephp/log",
+    "version": "v1.0.2",
     "type": "library",
     "description": "PHP PSR-3 Logger library, standardized approach to logging messages.",
     "keywords": ["psr3", "log", "logger", "filesystem", "database", "error log"],

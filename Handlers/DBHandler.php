@@ -12,16 +12,17 @@ class DBHandler extends AbstractHandler
 
     private $args;
 
-    public function __construct(array $args = array())
+    public function __construct(array $args = [])
     {
         $this->args = $args;
     }
 
     /**
      * Stream handler
-     * @param  string $level
-     * @param  string $message
-     * @param  string $date
+     * @param string $level
+     * @param string $message
+     * @param array $context
+     * @param string $date
      * @return void
      */
     public function handler(string $level, string $message, array $context, string $date): void

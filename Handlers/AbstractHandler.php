@@ -19,9 +19,9 @@ abstract class AbstractHandler implements HandlerInterface
      * @param  array  $context
      * @return string
      */
-    public function interpolate(string $message, array $context = array()): string
+    public function interpolate(string $message, array $context = []): string
     {
-        $replace = array();
+        $replace = [];
         foreach ($context as $key => $val) {
             if (is_array($val)) {
                 $replace['{' . $key . '}'] = json_encode($val);
